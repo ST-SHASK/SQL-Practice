@@ -20,15 +20,29 @@ If there is no second highest salary, then the query should return null.
 Answer:
 1.Limit + distinct
 select (
-select distinct Salary
-from Employee
-order by Salary desc
-limit 1,1
+  select 
+    distinct Salary
+  from 
+    Employee
+  order by Salary desc
+  limit 1,1
 ) as SecondHighestSalary;
 
-2.max
+2.ifnull
+SELECT
+    IFNULL (
+        (
+            SELECT 
+                DISTINCT(Salary)
+            FROM 
+                Employee
+            ORDER BY Salary DESC LIMIT 1 OFFSET 1)
+        ,null) AS SecondHighestSalary;
+        
+3.max
 select 
-max(Salary) as SecondHighestSalary
-from Employee
+  max(Salary) as SecondHighestSalary
+from 
+  Employee
 where 
-Salary < (select max(Salary) from Employee);
+  Salary < (select max(Salary) from Employee);
