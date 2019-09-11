@@ -17,9 +17,6 @@ For example, after running your query, the above Person table should have the fo
 | 1  | john@example.com |
 | 2  | bob@example.com  |
 +----+------------------+
-Note:
-
-Your output is the whole Person table after executing your sql. Use delete statement.
 
 
 Answer:
