@@ -1,1 +1,1 @@
-From LeetCode : simple SQL
+From LeetCode : Simple SQl Question
