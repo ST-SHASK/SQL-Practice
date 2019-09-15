@@ -18,7 +18,6 @@ If there is no nth highest salary, then the query should return null.
 
 
 Answer:
-
 解答本题要考虑输入N不合理的情况。
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
 BEGIN
@@ -38,3 +37,10 @@ BEGIN
       );
     END IF;
 END;
+
+
+IF 条件 
+THEN 满足条件时执行
+ELSE 不满足条件时执行
+
+IFNULL (执行语句,null) 如果没有查出内容将结果置为null
