@@ -1,0 +1,33 @@
+SQL架构
+Write a SQL query to find all numbers that appear at least three times consecutively.
+
++----+-----+
+| Id | Num |
++----+-----+
+| 1  |  1  |
+| 2  |  1  |
+| 3  |  1  |
+| 4  |  2  |
+| 5  |  1  |
+| 6  |  2  |
+| 7  |  2  |
++----+-----+
+For example, given the above Logs table, 1 is the only number that appears consecutively for at least three times.
+
++-----------------+
+| ConsecutiveNums |
++-----------------+
+| 1               |
++-----------------+
+
+
+
+Answer:
+用2个变量统计。pre变量统计上一次Num，cnt统计连续次数
+SELECT DISTINCT a.Num ConsecutiveNums 
+FROM 
+(
+    SELECT t.Num, @cnt:=IF(@pre=t.Num, @cnt+1, 1) cnt, @pre:=t.Num pre
+    FROM Logs t, (SELECT @pre:=null, @cnt:=0) b
+) a
+WHERE a.cnt >= 3
